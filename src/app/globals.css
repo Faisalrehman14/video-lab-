@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #111111;
+  --brand: #e30613;
+  --paper: #f3f3f3;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+  }
+
+  ::selection {
+    background: rgba(227, 6, 19, 0.2);
+    color: #111;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-normal;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-2.5 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand bg-transparent px-7 py-2.5 text-sm font-semibold uppercase tracking-wide text-brand transition hover:bg-brand hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2;
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink bg-transparent px-7 py-2.5 text-sm font-semibold uppercase tracking-wide text-ink transition hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-mist-muted transition hover:text-white;
+  }
+
+  .btn-phone {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand px-5 py-2 text-sm font-medium text-white transition hover:bg-brand;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2;
+  }
+
+  .section {
+    @apply mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24;
+  }
+
+  .section-badge {
+    @apply inline-block bg-ink px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-white;
+  }
+
+  .stat-number {
+    @apply font-display text-3xl font-extrabold md:text-4xl;
+    background: linear-gradient(180deg, #ff8a00 0%, #ffc107 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #ffffff;
+  }
+
+  @media (min-width: 768px) {
+    .text-outline {
+      -webkit-text-stroke: 2px #ffffff;
+    }
+  }
+
+  .hero-stage {
+    background-color: #070707;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 70% 40%, rgba(227, 6, 19, 0.18), transparent 55%),
+      radial-gradient(ellipse 40% 30% at 15% 80%, rgba(255, 255, 255, 0.04), transparent 50%),
+      linear-gradient(180deg, #0c0c0c 0%, #070707 100%);
+  }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 85%);
+  }
+
+  .corner-accent {
+    @apply absolute left-0 top-0 h-10 w-10 border-l-4 border-t-4 border-brand;
+  }
+
+  .mega-menu {
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.07),
+      0 12px 28px rgba(0, 0, 0, 0.18),
+      0 24px 48px rgba(0, 0, 0, 0.22);
+  }
+
+  .prose-legal {
+    @apply max-w-3xl text-stone-600;
+  }
+
+  .prose-legal h2 {
+    @apply mb-3 mt-10 font-display text-xl font-semibold text-ink first:mt-0;
+  }
+
+  .prose-legal h3 {
+    @apply mb-2 mt-6 font-display text-lg font-semibold text-ink;
+  }
+
+  .prose-legal p,
+  .prose-legal li {
+    @apply text-sm leading-relaxed;
+  }
+
+  .prose-legal p {
+    @apply mb-4;
+  }
+
+  .prose-legal ul {
+    @apply mb-4 list-disc space-y-2 pl-5;
+  }
+
+  .prose-legal a {
+    @apply text-brand underline-offset-2 hover:underline;
+  }
+
+  .input-field {
+    @apply w-full rounded-md border border-stone-300 bg-white px-4 py-3 text-sm text-ink placeholder:text-stone-400 transition focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand;
+  }
+
+  .label-field {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+}
