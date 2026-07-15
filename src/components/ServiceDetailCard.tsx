@@ -8,6 +8,25 @@ type Props = {
   href?: string;
 };
 
+function isPhotoUrl(image: string) {
+  return (
+    !image.startsWith("url(") &&
+    !image.includes("gradient(") &&
+    !image.startsWith("linear") &&
+    !image.startsWith("radial")
+  );
+}
+
+/** Prefer face-aware Unsplash crop so portraits aren’t beheaded in landscape frames */
+function faceAwareSrc(src: string) {
+  if (!src.includes("images.unsplash.com")) return src;
+  if (src.includes("crop=")) return src;
+  return `${src}${src.includes("?") ? "&" : "?"}crop=faces`;
+}
+
+/**
+ * Offering card media — taller than 16:10 and top-weighted so heads stay in frame.
+ */
 export function ServiceDetailCard({
   title,
   bullets,
@@ -15,13 +34,7 @@ export function ServiceDetailCard({
   featured = false,
   href,
 }: Props) {
-  const backgroundImage =
-    image.startsWith("url(") ||
-    image.includes("gradient(") ||
-    image.startsWith("linear") ||
-    image.startsWith("radial")
-      ? image
-      : `url(${image})`;
+  const photo = isPhotoUrl(image);
 
   return (
     <article
@@ -31,12 +44,30 @@ export function ServiceDetailCard({
           : "border-stone-200 bg-white text-stone-800"
       }`}
     >
-      <div
-        className="aspect-[16/10] w-full bg-cover bg-center"
-        style={{ backgroundImage }}
-        role="img"
-        aria-label={`${title} visual`}
-      />
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-stone-200">
+        {photo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={faceAwareSrc(image)}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover object-[center_22%]"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-[center_22%]"
+            style={{
+              backgroundImage:
+                image.startsWith("url(") || image.includes("gradient(")
+                  ? image
+                  : `url(${image})`,
+            }}
+            role="img"
+            aria-label={`${title} visual`}
+          />
+        )}
+      </div>
       <div className="flex flex-1 flex-col p-5 md:p-6">
         <h3 className="font-display text-base font-bold leading-snug text-brand md:text-lg">
           {href ? (

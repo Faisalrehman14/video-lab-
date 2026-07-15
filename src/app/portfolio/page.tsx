@@ -59,7 +59,7 @@ export default function PortfolioPage() {
               <article key={g.title}>
                 <div className="relative overflow-hidden">
                   <div
-                    className="aspect-[16/10] bg-cover bg-center bg-stone-200"
+                    className="aspect-[16/10] bg-cover bg-[center_28%] bg-stone-200"
                     style={{ backgroundImage: `url(${g.image})` }}
                     role="img"
                     aria-label={g.title}

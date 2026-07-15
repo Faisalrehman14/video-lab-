@@ -98,11 +98,17 @@ export function CategoryShowcase() {
               title={c.title}
               className={`group relative isolate block overflow-hidden rounded-xl bg-stone-900 ${tileClass[c.size]}`}
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition duration-700 ease-out will-change-transform group-hover:scale-105"
-                style={{ backgroundImage: `url(${c.image})` }}
-                role="img"
-                aria-label={c.title}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={
+                  c.image.includes("crop=")
+                    ? c.image
+                    : `${c.image}${c.image.includes("?") ? "&" : "?"}crop=faces`
+                }
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover object-[center_28%] transition duration-700 ease-out will-change-transform group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
 
               <div
