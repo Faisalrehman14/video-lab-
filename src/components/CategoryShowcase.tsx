@@ -49,14 +49,28 @@ export function CategoryShowcase() {
                   aria-hidden
                 />
 
-                {/* Red quarter-circle corner — bottom left */}
+                {/* Shaded red corner — bottom right */}
                 <div
-                  className="pointer-events-none absolute -bottom-[45%] -left-[45%] h-[110%] w-[110%] origin-bottom-left scale-0 rounded-full bg-brand opacity-0 transition duration-400 ease-out group-hover:scale-100 group-hover:opacity-100"
+                  className="pointer-events-none absolute -bottom-[50%] -right-[50%] h-[120%] w-[120%] origin-bottom-right scale-0 rounded-full opacity-0 transition duration-500 ease-out group-hover:scale-100 group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 100% 100%, rgba(227,6,19,0.95) 0%, rgba(227,6,19,0.75) 28%, rgba(180,0,12,0.45) 48%, rgba(227,6,19,0.12) 62%, transparent 72%)",
+                  }}
+                  aria-hidden
+                />
+
+                {/* Soft light edge on the red for shading depth */}
+                <div
+                  className="pointer-events-none absolute bottom-0 right-0 h-28 w-28 opacity-0 transition duration-500 group-hover:opacity-100"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 85% 85%, rgba(255,255,255,0.22) 0%, transparent 55%)",
+                  }}
                   aria-hidden
                 />
 
                 {/* Read More label inside red corner */}
-                <span className="pointer-events-none absolute bottom-4 left-4 z-10 translate-y-2 font-display text-xs font-bold uppercase tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm">
+                <span className="pointer-events-none absolute bottom-4 right-4 z-10 translate-y-2 text-right font-display text-xs font-bold uppercase tracking-wide text-white opacity-0 drop-shadow-[0_1px_8px_rgba(0,0,0,0.45)] transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm">
                   Read More →
                 </span>
               </div>
