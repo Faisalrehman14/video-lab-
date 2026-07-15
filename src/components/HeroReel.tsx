@@ -6,9 +6,19 @@ type Props = {
   className?: string;
   /** Compact chrome for side panels */
   compact?: boolean;
+  /** Public path to the reel (defaults to site finish reel) */
+  src?: string;
+  label?: string;
+  caption?: string;
 };
 
-export function HeroReel({ className = "", compact = false }: Props) {
+export function HeroReel({
+  className = "",
+  compact = false,
+  src = "/hero-reel.mp4",
+  label = "Finish Reel ’26",
+  caption = "Campaign · Commerce · Demo cuts",
+}: Props) {
   const ref = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
@@ -22,7 +32,7 @@ export function HeroReel({ className = "", compact = false }: Props) {
         /* autoplay may be blocked — user can tap */
       });
     }
-  }, []);
+  }, [src]);
 
   const toggleMute = () => {
     const v = ref.current;
@@ -39,13 +49,13 @@ export function HeroReel({ className = "", compact = false }: Props) {
       <video
         ref={ref}
         className="h-full w-full object-cover"
-        src="/hero-reel.mp4"
+        src={src}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        aria-label="RenderReady Labs finish reel"
+        aria-label={label}
       />
 
       {/* Soft edge vignette */}
@@ -61,10 +71,10 @@ export function HeroReel({ className = "", compact = false }: Props) {
       >
         <div>
           <p className="font-display text-xs font-extrabold uppercase tracking-[0.22em] text-white md:text-sm">
-            Finish Reel ’26
+            {label}
           </p>
-          {!compact && (
-            <p className="mt-1 text-[11px] text-stone-300">Campaign · Commerce · Demo cuts</p>
+          {!compact && caption && (
+            <p className="mt-1 text-[11px] text-stone-300">{caption}</p>
           )}
         </div>
         <button

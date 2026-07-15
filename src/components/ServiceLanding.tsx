@@ -39,6 +39,19 @@ export function ServiceLanding({ service }: Props) {
         description={service.heroDescription}
         primaryCta={{ href: contactHref, label: "Contact Us" }}
         secondaryCta={{ href: checkoutHref, label: "View Packages" }}
+        reelSrc={
+          service.slug === "commerce-pathing"
+            ? "/commerce-pathing-reel.mp4"
+            : undefined
+        }
+        reelLabel={
+          service.slug === "commerce-pathing" ? "Marketplace Pathing" : undefined
+        }
+        reelCaption={
+          service.slug === "commerce-pathing"
+            ? "Built for listing compliance"
+            : undefined
+        }
         policyLinks={
           <>
             <Link href="/legal/refund" className="hover:text-brand">

@@ -10,6 +10,9 @@ type Props = {
   primaryCta?: { href: string; label: string };
   secondaryCta?: { href: string; label: string };
   policyLinks?: ReactNode;
+  reelSrc?: string;
+  reelLabel?: string;
+  reelCaption?: string;
 };
 
 /**
@@ -24,7 +27,19 @@ export function SplitServiceHero({
   primaryCta = { href: "/contact", label: "Contact Us" },
   secondaryCta,
   policyLinks,
+  reelSrc,
+  reelLabel,
+  reelCaption,
 }: Props) {
+  const reel = (
+    <HeroReel
+      className="aspect-video w-full !rounded-none !border-0 !shadow-none"
+      src={reelSrc}
+      label={reelLabel}
+      caption={reelCaption}
+    />
+  );
+
   return (
     <section className="relative overflow-hidden">
       <div className="grid min-h-[72vh] lg:grid-cols-[1.15fr_0.85fr]">
@@ -60,7 +75,7 @@ export function SplitServiceHero({
         {/* Dark media rail — reel overlaps paper/ink seam like agency corporate heroes */}
         <div className="relative hidden min-h-[520px] bg-ink lg:block">
           <div className="absolute left-[-28%] top-1/2 z-10 w-[118%] max-w-none -translate-y-1/2 overflow-hidden shadow-[0_28px_70px_rgba(0,0,0,0.45)] ring-1 ring-black/30">
-            <HeroReel className="aspect-video w-full !rounded-none !border-0 !shadow-none" />
+            {reel}
           </div>
         </div>
       </div>
@@ -68,7 +83,13 @@ export function SplitServiceHero({
       {/* Mobile media */}
       <div className="bg-ink px-5 py-8 lg:hidden">
         <div className="relative mx-auto max-w-lg overflow-hidden shadow-xl">
-          <HeroReel className="aspect-video w-full !rounded-md" compact />
+          <HeroReel
+            className="aspect-video w-full !rounded-md"
+            compact
+            src={reelSrc}
+            label={reelLabel}
+            caption={reelCaption}
+          />
         </div>
       </div>
     </section>
