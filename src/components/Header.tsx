@@ -8,31 +8,30 @@ import { siteConfig } from "@/lib/site";
 
 const videoCols = [
   {
-    title: "Popular",
+    title: "Start here",
     links: [
       { href: "/services/video-editing", label: "All Video Editing" },
-      { href: "/services/corporate", label: "Corporate Videos" },
-      { href: "/services/product", label: "Product Videos" },
-      { href: "/services/real-estate", label: "Real Estate Tours" },
-      { href: "/services/wedding-event", label: "Wedding / Event Highlights" },
+      { href: "/services", label: "Browse all 20 specialties" },
+      { href: "/pricing", label: "Hourly rates" },
+      { href: "/checkout", label: "Packages & Checkout" },
     ],
   },
   {
-    title: "Formats",
+    title: "Popular",
     links: [
-      { href: "/services/youtube", label: "YouTube & Long-Form" },
-      { href: "/services/social-shorts", label: "Social Shorts / Reels" },
-      { href: "/services/saas-demo", label: "SaaS Product Demos" },
+      { href: "/services/corporate", label: "Corporate" },
+      { href: "/services/product", label: "Product" },
+      { href: "/services/social-shorts", label: "Social Shorts" },
+      { href: "/services/youtube", label: "YouTube" },
       { href: "/services/testimonial", label: "Testimonials" },
-      { href: "/services/sales-pitch", label: "Sales Pitch Video" },
     ],
   },
   {
-    title: "More specialties",
+    title: "Animation & craft",
     links: [
-      { href: "/services/cartoonic", label: "Cartoonic Video" },
-      { href: "/services/animation-2d", label: "2D Animation Editing" },
-      { href: "/services/animation-3d", label: "3D Animation Editing" },
+      { href: "/services/cartoonic", label: "Cartoonic" },
+      { href: "/services/animation-2d", label: "2D Animation" },
+      { href: "/services/animation-3d", label: "3D Animation" },
       { href: "/services/motion-graphics", label: "Motion Graphics" },
       { href: "/services/color-grading", label: "Color Grading" },
     ],
@@ -41,19 +40,19 @@ const videoCols = [
 
 const photoCols = [
   {
-    title: "Commerce",
+    title: "Start here",
     links: [
       { href: "/services/photo-editing", label: "All Photo Editing" },
-      { href: "/services/commerce-pathing", label: "Marketplace Pathing" },
-      { href: "/services/photo-catalog", label: "Product Catalog" },
-      { href: "/services/headshots", label: "Headshots & Team" },
+      { href: "/services", label: "Browse all specialties" },
+      { href: "/pricing", label: "Hourly rates" },
+      { href: "/checkout", label: "Packages & Checkout" },
     ],
   },
   {
-    title: "Creative",
+    title: "Commerce",
     links: [
-      { href: "/services/campaign", label: "Campaign Retouch" },
-      { href: "/services/travel", label: "Lifestyle Still Finishing" },
+      { href: "/services/commerce-pathing", label: "Marketplace Pathing" },
+      { href: "/services/photo-catalog", label: "Product Catalog" },
       { href: "/services/headshots", label: "Headshots & Team" },
       { href: "/portfolio", label: "Before / After Work" },
     ],
@@ -191,7 +190,11 @@ export function Header() {
           onMouseLeave={closeMegaDelayed}
         >
           <div className="mega-menu mx-auto max-w-6xl border border-black/5 bg-white px-8 py-7">
-            <div className="grid grid-cols-3 gap-0 divide-x divide-stone-200">
+            <div
+              className={`grid gap-0 divide-x divide-stone-200 ${
+                megaCols.length === 2 ? "grid-cols-2" : "grid-cols-3"
+              }`}
+            >
               {megaCols.map((col) => (
                 <div key={col.title} className="px-6 first:pl-0 last:pr-0">
                   <p className="mb-3 text-xs font-bold uppercase tracking-wider text-ink">

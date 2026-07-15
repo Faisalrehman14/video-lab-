@@ -20,7 +20,8 @@ export default function ServicesPage() {
         <div className="section pb-12">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">Services</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-extrabold uppercase text-ink md:text-5xl">
-            20 Editing Specialties. One Clear Scope Each.
+            20 Finishing Specialties.
+            <span className="mt-1 block text-stone-500">One clear scope each.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-stone-600">
             Every profession page lists offerings, why teams hire us, FAQs, and USD pricing before

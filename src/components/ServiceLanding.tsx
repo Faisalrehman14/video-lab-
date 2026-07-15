@@ -26,7 +26,7 @@ export function ServiceLanding({ service }: Props) {
   const checkoutHref = `/checkout?package=${featuredPack.id}`;
 
   return (
-    <div className="pt-[68px]">
+    <div className="pt-[68px] pb-20">
       <SplitServiceHero
         eyebrow={service.eyebrow}
         watermark="8+ YEARS"
@@ -259,6 +259,32 @@ export function ServiceLanding({ service }: Props) {
           <ButtonLink href={contactHref}>Get Started</ButtonLink>
         </div>
       </section>
+
+      {/* Sticky conversion bar */}
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-ink/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3 md:px-8">
+          <p className="text-sm text-stone-300">
+            <span className="font-display font-bold text-white">{service.label}</span>
+            <span className="mx-2 text-stone-600">·</span>
+            From {formatPrice(startPack.price)} USD
+            <span className="hidden sm:inline"> · or hourly on Pricing</span>
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              href="/pricing"
+              className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-brand hover:text-brand"
+            >
+              Rates
+            </Link>
+            <Link
+              href={contactHref}
+              className="inline-flex items-center rounded-full bg-brand px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-brand-dark"
+            >
+              Start project
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

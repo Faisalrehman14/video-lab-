@@ -65,7 +65,7 @@
 
   .stat-number {
     @apply font-display text-3xl font-extrabold md:text-4xl;
-    background: linear-gradient(180deg, #ff8a00 0%, #ffc107 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 46%, #e30613 46.01%, #b00510 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

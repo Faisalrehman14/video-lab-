@@ -3,7 +3,7 @@ type Props = {
   label: string;
 };
 
-/** Split orange gradient numerals with a mid “cut” line — premium agency stats */
+/** White → brand-red cut numerals — lab stats without orange noise */
 export function StatCut({ value, label }: Props) {
   return (
     <div className="text-center">
@@ -11,7 +11,8 @@ export function StatCut({ value, label }: Props) {
         <span
           className="font-display text-4xl font-extrabold leading-none md:text-5xl"
           style={{
-            background: "linear-gradient(180deg, #ffffff 0%, #ffb347 42%, #ff8a00 42.01%, #e35d00 100%)",
+            background:
+              "linear-gradient(180deg, #ffffff 0%, #ffffff 46%, #e30613 46.01%, #b00510 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
@@ -24,7 +25,7 @@ export function StatCut({ value, label }: Props) {
           aria-hidden
         />
       </div>
-      <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-white md:text-xs">
+      <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-400 md:text-xs">
         {label}
       </p>
     </div>

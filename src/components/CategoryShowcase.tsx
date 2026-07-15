@@ -1,45 +1,62 @@
 import Link from "next/link";
-import { categories } from "@/lib/content";
 import { ButtonLink } from "@/components/ButtonLink";
+import { getServiceBySlug } from "@/lib/serviceCatalog";
 
-/**
- * Equal-height 4-col grid — 20 specialties pack into clean rows with no empty card slots.
- * Hover keeps the shaded red corner + “Read More”.
- */
+/** Homepage specialty set — 12 tiles, short labels, no empty grid holes */
+const HOME_SPECIALTIES: { slug: string; short: string }[] = [
+  { slug: "corporate", short: "Corporate" },
+  { slug: "product", short: "Product" },
+  { slug: "testimonial", short: "Testimonials" },
+  { slug: "social-shorts", short: "Social Shorts" },
+  { slug: "youtube", short: "YouTube" },
+  { slug: "real-estate", short: "Real Estate" },
+  { slug: "cartoonic", short: "Cartoonic" },
+  { slug: "animation-2d", short: "2D Animation" },
+  { slug: "animation-3d", short: "3D Animation" },
+  { slug: "motion-graphics", short: "Motion Graphics" },
+  { slug: "photo-catalog", short: "Photo Catalog" },
+  { slug: "commerce-pathing", short: "Commerce Pathing" },
+];
+
 export function CategoryShowcase() {
+  const items = HOME_SPECIALTIES.map((h) => {
+    const s = getServiceBySlug(h.slug);
+    return s
+      ? { title: h.short, href: `/services/${s.slug}`, image: s.image }
+      : null;
+  }).filter(Boolean) as { title: string; href: string; image: string }[];
+
   return (
     <section className="border-t border-white/10 bg-ink">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-2xl font-extrabold uppercase leading-tight text-white md:text-4xl">
-            Some of the popular work
-            <span className="mt-1 block">categories we support</span>
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand">
+            Specialties
+          </p>
+          <h2 className="mt-3 font-display text-2xl font-extrabold text-white md:text-4xl">
+            Popular finishing categories
           </h2>
+          <p className="mt-3 text-sm text-stone-400">
+            Twelve doors into the lab — full directory lives on Services.
+          </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-7 xl:grid-cols-4">
-          {categories.map((c) => (
-            <Link
-              key={c.title}
-              href={c.href}
-              title={c.title}
-              className="group block"
-            >
-              <div className="relative isolate h-[240px] overflow-hidden rounded-xl bg-stone-900 sm:h-[260px]">
+        <div className="mt-12 grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-5">
+          {items.map((c) => (
+            <Link key={c.href} href={c.href} title={c.title} className="group block">
+              <div className="relative isolate aspect-[4/3] overflow-hidden rounded-xl bg-stone-900">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition duration-500 ease-out will-change-transform group-hover:scale-105"
                   style={{ backgroundImage: `url(${c.image})` }}
                   role="img"
                   aria-label={c.title}
                 />
-
                 <div
                   className="pointer-events-none absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/25"
                   aria-hidden
                 />
-
                 <div
-                  className="pointer-events-none absolute bottom-0 right-0 z-[1] h-[12.5rem] w-[12.5rem] translate-x-1/2 translate-y-1/2 scale-0 transition duration-500 ease-out group-hover:scale-100 sm:h-[13.5rem] sm:w-[13.5rem]"
+                  className="pointer-events-none absolute bottom-0 right-0 z-[1] h-[10rem] w-[10rem] translate-x-1/2 translate-y-1/2 scale-0 transition duration-500 ease-out group-hover:scale-100 sm:h-[11rem] sm:w-[11rem]"
                   aria-hidden
                 >
                   <div
@@ -50,22 +67,20 @@ export function CategoryShowcase() {
                     }}
                   />
                 </div>
-
-                <span className="pointer-events-none absolute bottom-3.5 right-3.5 z-[2] max-w-[5.5rem] translate-y-2 text-right font-display text-[11px] font-bold uppercase leading-snug tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-4 sm:right-4 sm:max-w-[6.5rem] sm:text-xs">
+                <span className="pointer-events-none absolute bottom-3 right-3 z-[2] translate-y-2 text-right font-display text-[10px] font-bold uppercase tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:text-[11px]">
                   Read More →
                 </span>
               </div>
-
-              <p className="mt-3 font-display text-sm font-bold uppercase tracking-wide text-white transition group-hover:text-brand md:text-[15px]">
+              <p className="mt-3 font-display text-sm font-bold uppercase tracking-wide text-white transition group-hover:text-brand">
                 {c.title}
               </p>
             </Link>
           ))}
         </div>
 
-        <div className="mt-6 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <ButtonLink href="/services" variant="outline">
-            All Services
+            All 20 specialties
           </ButtonLink>
         </div>
       </div>
