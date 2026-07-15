@@ -52,7 +52,7 @@ export const categories = [
     href: "/services/video-editing",
     image:
       "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80",
-    aspect: "wide" as const,
+    aspect: "short" as const,
   },
   {
     title: "Travel & Lifestyle Film",
@@ -66,7 +66,7 @@ export const categories = [
     href: "/services/video-editing",
     image:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80",
-    aspect: "mid" as const,
+    aspect: "wide" as const,
   },
   {
     title: "Interview & Leadership",
@@ -80,7 +80,7 @@ export const categories = [
     href: "/services/video-editing",
     image:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
-    aspect: "wide" as const,
+    aspect: "short" as const,
   },
   {
     title: "Sales Pitch Video",
@@ -101,14 +101,14 @@ export const categories = [
     href: "/services/video-editing",
     image:
       "https://images.unsplash.com/photo-1611162616471-46b635cb1dd1?auto=format&fit=crop&w=900&q=80",
-    aspect: "mid" as const,
+    aspect: "wide" as const,
   },
   {
     title: "YouTube Long-Form",
     href: "/services/video-editing",
     image:
       "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80",
-    aspect: "wide" as const,
+    aspect: "short" as const,
   },
   {
     title: "Photo Catalog Retouch",

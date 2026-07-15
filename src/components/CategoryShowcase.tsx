@@ -2,62 +2,73 @@ import Link from "next/link";
 import { categories } from "@/lib/content";
 import { ButtonLink } from "@/components/ButtonLink";
 
-const aspectClass = {
-  tall: "aspect-[3/4]",
-  mid: "aspect-[4/5]",
-  wide: "aspect-[16/10]",
+/** Mixed heights so masonry tiles aren’t uniform */
+const heightClass = {
+  short: "h-[200px] sm:h-[220px]",
+  mid: "h-[280px] sm:h-[300px]",
+  tall: "h-[360px] sm:h-[400px]",
+  wide: "h-[240px] sm:h-[260px]",
 } as const;
 
 /**
- * Dark masonry category gallery — VideoCaddy-inspired image grid, RenderReady branding.
+ * Dark masonry category gallery with VC-style red “Read More” corner hover.
  */
 export function CategoryShowcase() {
   return (
     <section className="border-t border-white/10 bg-ink">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-brand">
-            Categories
-          </p>
-          <h2 className="mt-4 font-display text-2xl font-extrabold uppercase leading-tight text-white md:text-4xl">
-            Some of the popular work categories we support
+          <h2 className="font-display text-2xl font-extrabold uppercase leading-tight text-white md:text-4xl">
+            Some of the popular work
+            <span className="mt-1 block">categories we support</span>
           </h2>
-          <p className="mt-4 text-sm text-stone-400 md:text-base">
-            Remote finishing across video, photo, and audio — pick a category to see scoped
-            delivery options.
-          </p>
         </div>
 
-        <div className="mt-12 columns-1 gap-x-6 sm:columns-2 lg:columns-3">
+        <div className="mt-12 columns-1 gap-x-5 sm:columns-2 sm:gap-x-6 lg:columns-3 lg:gap-x-7 xl:columns-4">
           {categories.map((c) => (
             <Link
               key={c.title}
               href={c.href}
-              className="group mb-8 block break-inside-avoid"
+              title={c.title}
+              className="group mb-7 block break-inside-avoid sm:mb-8"
             >
               <div
-                className={`relative overflow-hidden bg-stone-900 ${aspectClass[c.aspect]}`}
+                className={`relative overflow-hidden rounded-xl bg-stone-900 ${heightClass[c.aspect]}`}
               >
+                {/* Photo */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition duration-700 ease-out group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-center transition duration-500 ease-out group-hover:scale-105 group-hover:blur-[2px]"
                   style={{ backgroundImage: `url(${c.image})` }}
                   role="img"
                   aria-label={c.title}
                 />
+
+                {/* Soft base gradient */}
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10 opacity-80 transition group-hover:opacity-95"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
                   aria-hidden
                 />
-                <span className="pointer-events-none absolute left-3 top-3 h-8 w-8 border-l-2 border-t-2 border-brand opacity-0 transition group-hover:opacity-100" />
+
+                {/* Red quarter-circle corner — bottom left */}
+                <div
+                  className="pointer-events-none absolute -bottom-[45%] -left-[45%] h-[110%] w-[110%] origin-bottom-left scale-0 rounded-full bg-brand opacity-0 transition duration-400 ease-out group-hover:scale-100 group-hover:opacity-100"
+                  aria-hidden
+                />
+
+                {/* Read More label inside red corner */}
+                <span className="pointer-events-none absolute bottom-4 left-4 z-10 translate-y-2 font-display text-xs font-bold uppercase tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm">
+                  Read More →
+                </span>
               </div>
-              <p className="mt-3 font-display text-sm font-bold uppercase tracking-wide text-white transition group-hover:text-brand md:text-base">
+
+              <p className="mt-3 font-display text-sm font-bold uppercase tracking-wide text-white transition group-hover:text-brand md:text-[15px]">
                 {c.title}
               </p>
             </Link>
           ))}
         </div>
 
-        <div className="mt-4 flex justify-center">
+        <div className="mt-6 flex justify-center">
           <ButtonLink href="/services" variant="outline">
             All Services
           </ButtonLink>
