@@ -8,34 +8,34 @@ import { formatAddress, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Scope a video, photo, or audio finish with RenderReady Labs. Hourly or package quotes confirmed in USD before Stripe Checkout.",
+    "Start a remote finish brief with RenderReady Labs. Online collaboration worldwide — hourly or package USD quotes confirmed before Stripe Checkout.",
 };
 
 const trustPoints = [
   {
-    title: "Reply SLA",
-    text: "Producer response within one business day — hours or package options in writing.",
+    title: "100% remote",
+    text: "Fully online finishing lab — brief, upload, review, and delivery without leaving your workflow.",
   },
   {
-    title: "No card on form",
-    text: "Inquiries are free. Payment only through Stripe after you approve the USD total.",
+    title: "Async-first",
+    text: "Drive / Dropbox / Frame.io handoffs and time-coded notes. Live calls only when you need them.",
   },
   {
-    title: "NDA-ready",
-    text: "Restricted file handoff and NDA workflows available for brand & enterprise work.",
+    title: "Global clients",
+    text: "We work across time zones. PT coverage hours with clear reply SLAs on every inquiry.",
   },
   {
-    title: "Clear scope",
-    text: "Deliverables, revision rounds, and turnaround locked before any invoice.",
+    title: "Pay after confirm",
+    text: "No card on this form. Stripe Checkout only after a written USD hours or package total.",
   },
 ];
 
 const channels = [
   {
-    label: "Email",
+    label: "Email (primary)",
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
-    hint: "Best for briefs & links",
+    hint: "Briefs, Drive links, Frame.io invites",
     icon: (
       <path
         d="M4 7h16v10H4V7zm0 0l8 6 8-6"
@@ -49,7 +49,7 @@ const channels = [
     label: "Phone / WhatsApp",
     value: siteConfig.phone,
     href: `tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`,
-    hint: "Mon–Fri · PT business hours",
+    hint: "Capacity checks · Mon–Fri PT online hours",
     icon: (
       <path
         d="M7 3h3l1.5 4-2 1.5a12 12 0 006 6L17 13l4 1.5V18a2 2 0 01-2 2A15 15 0 015 5a2 2 0 012-2z"
@@ -60,10 +60,10 @@ const channels = [
     ),
   },
   {
-    label: "Support desk",
+    label: "Project support",
     value: siteConfig.supportEmail,
     href: `mailto:${siteConfig.supportEmail}`,
-    hint: "Active projects & billing",
+    hint: "Active jobs, revisions & Stripe receipts",
     icon: (
       <path
         d="M12 3l8 4v6c0 4.5-3.2 7.5-8 9-4.8-1.5-8-4.5-8-9V7l8-4z"
@@ -75,25 +75,60 @@ const channels = [
   },
 ];
 
+const remoteStack = [
+  {
+    title: "Secure upload",
+    text: siteConfig.remote.handoff.join(" · "),
+  },
+  {
+    title: "Online review",
+    text: siteConfig.remote.reviews.join(" · "),
+  },
+  {
+    title: "Coverage",
+    text: `${siteConfig.remote.coverage} · ${siteConfig.remote.timezone}`,
+  },
+];
+
 const processSteps = [
-  { n: "01", title: "Brief", text: "Share footage notes, refs, and deadline." },
-  { n: "02", title: "Estimate", text: "We return hours or a fixed USD package." },
-  { n: "03", title: "Confirm", text: "Approve scope in writing — then Stripe." },
-  { n: "04", title: "Produce", text: "Edit, review rounds, deliver masters." },
+  {
+    n: "01",
+    title: "Send brief online",
+    text: "Form or email + cloud link to footage / stills.",
+  },
+  {
+    n: "02",
+    title: "Get hours or package",
+    text: "Written estimate in USD before any payment.",
+  },
+  {
+    n: "03",
+    title: "Pay via Stripe",
+    text: "Checkout only after you approve the total.",
+  },
+  {
+    n: "04",
+    title: "Review remotely",
+    text: "Frame.io or notes → finals delivered online.",
+  },
 ];
 
 const faqs = [
   {
+    q: "Do I need to visit an office?",
+    a: "No. RenderReady Labs is a fully remote online finishing lab. Everything — brief, upload, review, and delivery — happens through cloud tools and email/calls.",
+  },
+  {
+    q: "How do I send footage securely?",
+    a: "Share a Drive, Dropbox, Frame.io, WeTransfer, or Box link after we confirm scope. We never ask for card details on the inquiry form.",
+  },
+  {
+    q: "What time zone do you work in?",
+    a: "Primary coverage is Pacific Time (Mon–Fri). We collaborate asynchronously with worldwide clients and schedule live calls when useful.",
+  },
+  {
     q: "Do I pay on this form?",
-    a: "No. This form is inquiry-only. Stripe Checkout opens only after you approve a written USD total.",
-  },
-  {
-    q: "Hourly or package — which should I pick?",
-    a: "Hourly fits open-ended volume. Fixed packages suit clear deliverables. We’ll recommend one after seeing the brief.",
-  },
-  {
-    q: "How fast do you reply?",
-    a: "Within one business day (Mon–Fri PT). Rush requests flagged as ASAP are prioritized when capacity allows.",
+    a: "No. Inquiry only. Stripe Checkout opens after you approve a written hourly total or fixed USD package.",
   },
 ];
 
@@ -111,25 +146,32 @@ function FormFallback() {
 export default function ContactPage() {
   return (
     <div className="pt-[68px]">
-      {/* Hero */}
+      {/* Hero — remote-first */}
       <section className="relative overflow-hidden border-b border-stone-200 bg-ink">
         <div className="hero-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-16">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-brand">Contact</p>
-          <h1 className="mt-3 max-w-3xl font-display text-3xl font-extrabold uppercase leading-tight text-white md:text-5xl">
-            Let&apos;s scope your next edit
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-brand">
+              Contact · Remote
+            </p>
+            <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-stone-300">
+              {siteConfig.remote.model}
+            </span>
+          </div>
+          <h1 className="mt-4 max-w-3xl font-display text-3xl font-extrabold uppercase leading-tight text-white md:text-5xl">
+            Start a remote finish brief
           </h1>
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-stone-300 md:text-base">
-            Tell us the brief — we confirm editor hours or a fixed package and the USD total in
-            writing before any Stripe payment.
+            You work online — so do we. Share the brief and a cloud link; we confirm editor hours or
+            a fixed package and the USD total in writing before Stripe Checkout.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={`mailto:${siteConfig.email}`}>Email studio</ButtonLink>
+            <ButtonLink href={`mailto:${siteConfig.email}`}>Email a brief</ButtonLink>
             <ButtonLink href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`} variant="ghost">
               {siteConfig.phone}
             </ButtonLink>
             <ButtonLink href="/pricing" variant="outline">
-              View hourly rates
+              Hourly rates
             </ButtonLink>
           </div>
         </div>
@@ -152,16 +194,31 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Remote stack band */}
+      <section className="border-b border-stone-200 bg-paper">
+        <div className="mx-auto grid max-w-6xl gap-6 px-5 py-10 md:grid-cols-3 md:px-8 md:py-12">
+          {remoteStack.map((item) => (
+            <div key={item.title}>
+              <p className="font-display text-xs font-extrabold uppercase tracking-[0.18em] text-ink">
+                {item.title}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-stone-600">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Main */}
-      <section className="bg-paper">
+      <section className="bg-white">
         <div className="section grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
           <div className="space-y-10">
             <div>
               <h2 className="font-display text-2xl font-extrabold uppercase text-ink">
-                Reach the finish desk
+                Online channels
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-stone-600">
-                Prefer email for asset links. Call for urgent capacity checks during business hours.
+                No walk-ins required. Email for asset links; call or WhatsApp for quick capacity
+                checks during PT coverage hours.
               </p>
             </div>
 
@@ -170,9 +227,9 @@ export default function ContactPage() {
                 <li key={c.label}>
                   <a
                     href={c.href}
-                    className="group flex gap-4 border border-stone-200 bg-white p-4 transition hover:border-brand/50 hover:shadow-sm"
+                    className="group flex gap-4 border border-stone-200 bg-paper p-4 transition hover:border-brand/50 hover:bg-white hover:shadow-sm"
                   >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-stone-200 text-stone-500 transition group-hover:border-brand group-hover:text-brand">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-stone-200 bg-white text-stone-500 transition group-hover:border-brand group-hover:text-brand">
                       <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden>
                         {c.icon}
                       </svg>
@@ -191,37 +248,13 @@ export default function ContactPage() {
               ))}
             </ul>
 
-            <div className="border border-stone-200 bg-white p-5">
-              <h3 className="font-display text-sm font-extrabold uppercase tracking-wide text-ink">
-                Studio location
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-stone-600">{formatAddress()}</p>
-              <p className="mt-2 text-xs text-stone-400">
-                {siteConfig.legalName} · DBA {siteConfig.dba}
-              </p>
-              <div className="mt-5 grid gap-2 border-t border-stone-100 pt-4 text-sm">
-                <div className="flex justify-between gap-4">
-                  <span className="text-stone-500">Weekdays</span>
-                  <span className="text-right font-medium text-ink">9:00 AM – 6:00 PM PT</span>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <span className="text-stone-500">Saturday</span>
-                  <span className="text-right font-medium text-ink">By appointment</span>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <span className="text-stone-500">Sunday</span>
-                  <span className="text-right font-medium text-ink">Closed</span>
-                </div>
-              </div>
-            </div>
-
             <div>
               <h3 className="font-display text-sm font-extrabold uppercase tracking-wide text-ink">
-                How it works
+                Remote production loop
               </h3>
               <ol className="mt-4 grid gap-3 sm:grid-cols-2">
                 {processSteps.map((s) => (
-                  <li key={s.n} className="border border-stone-200 bg-white p-4">
+                  <li key={s.n} className="border border-stone-200 bg-paper p-4">
                     <span className="font-display text-xs font-bold text-brand">{s.n}</span>
                     <p className="mt-1 font-display text-sm font-bold uppercase text-ink">{s.title}</p>
                     <p className="mt-1 text-xs leading-relaxed text-stone-500">{s.text}</p>
@@ -229,19 +262,50 @@ export default function ContactPage() {
                 ))}
               </ol>
             </div>
+
+            {/* Legal registered address — not a visit venue */}
+            <div className="border border-stone-200 bg-paper p-5">
+              <h3 className="font-display text-sm font-extrabold uppercase tracking-wide text-ink">
+                Online coverage hours
+              </h3>
+              <div className="mt-4 grid gap-2 text-sm">
+                <div className="flex justify-between gap-4">
+                  <span className="text-stone-500">Weekdays</span>
+                  <span className="text-right font-medium text-ink">9:00 AM – 6:00 PM PT</span>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <span className="text-stone-500">Saturday</span>
+                  <span className="text-right font-medium text-ink">Remote appointment</span>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <span className="text-stone-500">Sunday</span>
+                  <span className="text-right font-medium text-ink">Closed</span>
+                </div>
+              </div>
+              <div className="mt-5 border-t border-stone-200 pt-4">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+                  Registered business address (billing / legal)
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600">{formatAddress()}</p>
+                <p className="mt-1 text-xs text-stone-400">
+                  {siteConfig.legalName} · DBA {siteConfig.dba} · Not a public walk-in studio
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Form panel */}
           <div className="border border-stone-200 bg-white shadow-mega">
             <div className="border-b border-stone-200 bg-ink px-6 py-5 md:px-8">
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand">
-                Project inquiry
+                Online inquiry
               </p>
               <h2 className="mt-2 font-display text-xl font-extrabold uppercase text-white md:text-2xl">
-                Start a finish brief
+                Brief us remotely
               </h2>
               <p className="mt-2 text-sm text-stone-400">
-                Payment is never collected here — Stripe Checkout only after written USD confirm.
+                Include your cloud folder link if ready. No payment on this form — Stripe only after
+                written USD confirm.
               </p>
             </div>
             <div className="relative px-6 py-7 md:px-8 md:py-8">
@@ -254,16 +318,16 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-stone-200 bg-white">
+      <section className="border-t border-stone-200 bg-paper">
         <div className="section max-w-3xl">
           <h2 className="font-display text-2xl font-extrabold uppercase text-ink md:text-3xl">
-            Contact FAQ
+            Remote collaboration FAQ
           </h2>
           <div className="mt-8 space-y-3">
             {faqs.map((f) => (
               <details
                 key={f.q}
-                className="group border border-stone-200 bg-paper open:bg-white open:shadow-sm"
+                className="group border border-stone-200 bg-white open:shadow-sm"
               >
                 <summary className="cursor-pointer list-none px-5 py-4 font-display text-sm font-bold uppercase text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                   <span className="flex items-center justify-between gap-4">
@@ -278,7 +342,7 @@ export default function ContactPage() {
             ))}
           </div>
           <p className="mt-8 text-sm text-stone-500">
-            Need policies first?{" "}
+            Policies:{" "}
             <Link href="/legal/refund" className="text-brand hover:underline">
               Refund
             </Link>

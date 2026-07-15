@@ -13,6 +13,9 @@ export async function POST(request: Request) {
       budget,
       timeline,
       preferredContact,
+      handoff,
+      timezone,
+      cloudLink,
       topic,
     } = body ?? {};
 
@@ -39,6 +42,9 @@ export async function POST(request: Request) {
       budget: budget ? String(budget).slice(0, 40) : null,
       timeline: timeline ? String(timeline).slice(0, 40) : null,
       preferredContact: preferredContact ? String(preferredContact).slice(0, 20) : null,
+      handoff: handoff ? String(handoff).slice(0, 40) : null,
+      timezone: timezone ? String(timezone).slice(0, 20) : null,
+      cloudLink: cloudLink ? String(cloudLink).slice(0, 300) : null,
       topic: topic ? String(topic).slice(0, 60) : null,
       message: String(message).slice(0, 500),
     });

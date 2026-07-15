@@ -69,6 +69,9 @@ export function ContactForm() {
           budget: data.get("budget"),
           timeline: data.get("timeline"),
           preferredContact: data.get("preferredContact"),
+          handoff: data.get("handoff"),
+          timezone: data.get("timezone"),
+          cloudLink: data.get("cloudLink"),
           message: data.get("message"),
           topic: topic || null,
         }),
@@ -91,8 +94,9 @@ export function ContactForm() {
       >
         <p className="font-display text-xl font-extrabold uppercase text-ink">Message received</p>
         <p className="mt-3 text-sm leading-relaxed text-stone-600">
-          Thanks — a producer will reply within one business day with hours or package options and
-          a confirmed USD total before any Stripe Checkout.
+          Thanks — a remote producer will reply within one business day with hours or package
+          options and a confirmed USD total before any Stripe Checkout. Have a Drive / Dropbox /
+          Frame.io link ready if you haven’t shared one yet.
         </p>
         <button
           type="button"
@@ -260,6 +264,57 @@ export function ContactForm() {
         </div>
       </fieldset>
 
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="handoff" className="label-field">
+            Preferred file handoff
+          </label>
+          <select id="handoff" name="handoff" className="input-field" defaultValue="">
+            <option value="">Select tool</option>
+            <option value="google-drive">Google Drive</option>
+            <option value="dropbox">Dropbox</option>
+            <option value="frameio">Frame.io</option>
+            <option value="wetransfer">WeTransfer</option>
+            <option value="box">Box</option>
+            <option value="other">Other / TBD</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="timezone" className="label-field">
+            Your time zone
+          </label>
+          <select id="timezone" name="timezone" className="input-field" defaultValue="">
+            <option value="">Select</option>
+            <option value="PT">Pacific (PT)</option>
+            <option value="MT">Mountain (MT)</option>
+            <option value="CT">Central (CT)</option>
+            <option value="ET">Eastern (ET)</option>
+            <option value="GMT">GMT / UK</option>
+            <option value="CET">Central Europe</option>
+            <option value="GST">Gulf (GST)</option>
+            <option value="PKT">Pakistan (PKT)</option>
+            <option value="IST">India (IST)</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="cloudLink" className="label-field">
+          Cloud folder / review link (optional)
+        </label>
+        <input
+          id="cloudLink"
+          name="cloudLink"
+          type="url"
+          className="input-field"
+          placeholder="https://drive.google.com/… or Frame.io project"
+        />
+        <p className="mt-1.5 text-[11px] text-stone-400">
+          Share only what you&apos;re comfortable with. You can send a private invite after we reply.
+        </p>
+      </div>
+
       <div>
         <div className="flex items-end justify-between gap-3">
           <label htmlFor="message" className="label-field">
@@ -274,7 +329,7 @@ export function ContactForm() {
           rows={6}
           maxLength={2000}
           className="input-field mt-1.5 resize-y"
-          placeholder="Footage type & length, platforms, brand kit status, references, and any hard deadlines…"
+          placeholder="Footage type & length, platforms, brand kit status, references, hard deadlines, and how you’d like remote reviews to run…"
           onChange={(e) => setMessageLen(e.target.value.length)}
         />
       </div>

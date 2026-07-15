@@ -10,9 +10,21 @@ export const metadata: Metadata = {
 };
 
 const process = [
-  { step: "01", title: "Brief & scope", text: "Footage, refs, and goals. Package, deliverables, and USD price confirmed in writing before payment." },
-  { step: "02", title: "Edit & review", text: "Cut, grade, retouch. Structured revision rounds matching your package." },
-  { step: "03", title: "Deliver & ship", text: "Finals in listed formats with handoff notes. Support per refund and dispute policies." },
+  {
+    step: "01",
+    title: "Brief online",
+    text: "Share goals + a Drive / Dropbox / Frame.io link. Hours or package USD confirmed in writing before payment.",
+  },
+  {
+    step: "02",
+    title: "Edit remotely",
+    text: "Editors cut, grade, and retouch online. Structured revision rounds matching your scope.",
+  },
+  {
+    step: "03",
+    title: "Deliver online",
+    text: "Review on Frame.io or notes, then download masters from a secure cloud handoff.",
+  },
 ];
 
 export default function AboutPage() {
@@ -24,14 +36,18 @@ export default function AboutPage() {
             About {siteConfig.name}
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-extrabold uppercase text-ink md:text-5xl">
-            A Finishing Lab for Brands That Move Fast
+            A Remote Finishing Lab for Brands That Move Fast
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600">
-            {siteConfig.legalName} (DBA {siteConfig.dba}) helps marketing teams and creators ship
-            publish-ready video and photo — with clear packages and Stripe-compliant transparency.
+            {siteConfig.legalName} (DBA {siteConfig.dba}) is an online video &amp; photo finishing
+            lab. Clients worldwide brief us remotely — clear hours or packages, transparent USD
+            pricing, and Stripe-secured checkout.
           </p>
-          <div className="mt-8">
-            <ButtonLink href="/contact">Start a Project</ButtonLink>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <ButtonLink href="/contact">Start a remote brief</ButtonLink>
+            <ButtonLink href="/pricing" variant="outlineDark">
+              Hourly rates
+            </ButtonLink>
           </div>
         </div>
       </section>
@@ -40,15 +56,15 @@ export default function AboutPage() {
         <div className="section">
           <h2 className="font-display text-3xl font-extrabold text-ink">Our Mission</h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-stone-600">
-            Make post-production predictable: what you buy, USD cost, turnaround, and refund rules —
-            before you pay.
+            Make remote post-production predictable: what you buy, USD cost, turnaround, and refund
+            rules — before you pay. No office visit required.
           </p>
         </div>
       </section>
 
       <section className="border-t border-stone-200 bg-paper">
         <div className="section">
-          <h2 className="font-display text-3xl font-extrabold text-ink">How We Work</h2>
+          <h2 className="font-display text-3xl font-extrabold text-ink">How We Work Online</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {process.map((p) => (
               <div key={p.step} className="border border-stone-200 bg-white p-6">
@@ -66,17 +82,25 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <h2 className="font-display text-3xl font-extrabold text-ink md:text-4xl">
-                Why Brands Choose Us
+                Why Brands Choose Remote Finishing
               </h2>
               <div
-                className="relative mt-8 aspect-[4/3]"
+                className="relative mt-8 aspect-video overflow-hidden"
                 style={{
                   backgroundImage:
                     "linear-gradient(160deg,#2a1212,#111),radial-gradient(circle at 40% 40%,rgba(227,6,19,.35),transparent 50%)",
                 }}
                 role="img"
-                aria-label="Studio finishing environment"
+                aria-label="Remote finishing workflow"
               >
+                <div className="absolute inset-x-6 bottom-6 space-y-2">
+                  <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-brand">
+                    Online · Async · Stripe
+                  </p>
+                  <p className="font-display text-lg font-bold text-white">
+                    {siteConfig.remote.model}
+                  </p>
+                </div>
                 <div className="absolute bottom-0 right-0 h-14 w-14 bg-brand" />
               </div>
             </div>
@@ -85,7 +109,7 @@ export default function AboutPage() {
                 <WhyPoint key={w.title} title={w.title} text={w.text} />
               ))}
               <ButtonLink href="/contact" variant="outlineDark">
-                Contact Us
+                Brief us online
               </ButtonLink>
             </div>
           </div>
