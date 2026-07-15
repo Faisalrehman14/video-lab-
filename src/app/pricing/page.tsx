@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: `Transparent USD starting packages for video, photo, and audio finishing at ${siteConfig.name}. Scope confirmed before Stripe Checkout.`,
+  description: `Hourly USD starting rates for video, photo, and audio finishing at ${siteConfig.name}. Hours confirmed before Stripe Checkout.`,
 };
 
 export default function PricingPage() {

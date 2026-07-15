@@ -25,9 +25,9 @@ export function PricingBoard({ showIntro = false, id = "pricing" }: Props) {
               Pricing
             </h1>
             <p className="mt-5 max-w-3xl text-base font-semibold leading-relaxed text-ink md:text-lg">
-              Our pricing balances professional finishing quality with clear budgets. Starting USD
-              packages are published below — final scope is confirmed in writing before Stripe
-              Checkout, so you always know what you are buying.
+              Our pricing is built around professional editor hours vs. tight budgets. Starting
+              USD rates are listed per hour below — final hours and total are confirmed in writing
+              before Stripe Checkout, so you always know what you are buying.
             </p>
             <p className="mt-6 inline-flex items-center gap-2 border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-stone-600">
               <Link href="/" className="hover:text-brand">
@@ -48,8 +48,9 @@ export function PricingBoard({ showIntro = false, id = "pricing" }: Props) {
                 Pricing
               </h2>
               <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-ink md:text-base">
-                Professional finishing at rates built for growing brands — published USD starting
-                packages, influencers listed clearly, and Stripe Checkout only after scope confirm.
+                Professional finishing priced per editor hour — starting USD rates published below,
+                advanced influencers listed clearly, and Stripe Checkout only after hours are
+                confirmed.
               </p>
             </>
           )}
@@ -74,7 +75,8 @@ export function PricingBoard({ showIntro = false, id = "pricing" }: Props) {
                   {cat.startingLabel}
                 </p>
                 <p className="mt-2 font-display text-3xl font-extrabold leading-none md:text-[2rem]">
-                  {cat.priceLine}
+                  {cat.priceLine}{" "}
+                  <span className="text-lg font-bold md:text-xl">{cat.priceSuffix}</span>
                 </p>
                 {cat.priceNote && (
                   <p className={`mt-2 text-xs ${cat.featured ? "text-stone-400" : "text-stone-500"}`}>
@@ -112,7 +114,7 @@ export function PricingBoard({ showIntro = false, id = "pricing" }: Props) {
                       : "border-2 border-brand text-brand hover:bg-brand hover:text-white"
                   }`}
                 >
-                  {cat.id === "audio" ? "Request Quote" : "Select Package"}
+                  {cat.ctaLabel}
                 </Link>
               </article>
             ))}
@@ -146,16 +148,18 @@ export function PricingBoard({ showIntro = false, id = "pricing" }: Props) {
             Pricing Disclaimer
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-stone-600">
-            {siteConfig.name} keeps published information accurate. Starting prices marked with *
-            are indicative of typical scopes. Final pricing depends on footage length, complexity,
-            motion/graphics load, revision needs, and turnaround. When you select a package at{" "}
+            {siteConfig.name} keeps published information accurate. Hourly rates marked with * are
+            INDICATIVE starting rates. Final pricing is set only after project nature, complexity,
+            skill level, estimated editor hours, and contract terms are confirmed. Confirmed totals
+            are what Stripe charges — no surprise fees at payment. Fixed{" "}
             <Link href="/checkout" className="text-brand hover:underline">
-              Checkout
-            </Link>
-            , the USD amount shown is what Stripe charges — no surprise fees at payment.
+              package checkout
+            </Link>{" "}
+            options remain available when you prefer a locked USD deliverable instead of hourly
+            billing.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-stone-600">
-            Custom or hybrid scopes are quoted in writing before any payment. See our{" "}
+            Quotes are provided in writing before any payment. See our{" "}
             <Link href="/legal/refund" className="text-brand hover:underline">
               Refund Policy
             </Link>
@@ -180,7 +184,7 @@ export function PricingBoard({ showIntro = false, id = "pricing" }: Props) {
               Get Started Now
             </h2>
             <p className="mt-2 text-sm text-stone-400">
-              Confirm package and USD price, then pay securely with Stripe.
+              Share your brief — we confirm hours and USD total before Stripe Checkout.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
