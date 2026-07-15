@@ -9,8 +9,9 @@ import { FinishBayVisual, HeroQuickActions } from "@/components/FinishBayVisual"
 import { BrandMark } from "@/components/BrandMark";
 import { CraftDeckGrid } from "@/components/CraftDeckGrid";
 import { StatCut } from "@/components/StatCut";
+import { PricingBoard } from "@/components/PricingBoard";
 import { siteConfig } from "@/lib/site";
-import { formatPrice, photoPackages, videoPackages } from "@/lib/packages";
+import { formatPrice, videoPackages } from "@/lib/packages";
 import {
   caseStudies,
   categories,
@@ -355,46 +356,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="border-t border-stone-200 bg-paper">
-        <div className="section">
-          <h2 className="font-display text-3xl font-extrabold text-ink md:text-4xl">
-            Transparent USD Pricing — Before Checkout
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm text-stone-600 md:text-base">
-            Stripe charges the package price shown. No hidden fees.{" "}
-            <Link href="/legal/refund" className="text-brand hover:underline">
-              Refund Policy
-            </Link>{" "}
-            linked at checkout.
-          </p>
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {[videoPackages[1], photoPackages[1]].map((pkg) => (
-              <div
-                key={pkg.id}
-                className="flex flex-col justify-between gap-4 border border-stone-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center"
-              >
-                <div>
-                  <h3 className="font-display text-xl font-bold text-ink">{pkg.name}</h3>
-                  <p className="mt-1 text-sm text-stone-500">{pkg.turnaround}</p>
-                </div>
-                <div className="shrink-0 sm:text-right">
-                  <p className="font-display text-3xl font-extrabold text-ink">
-                    {formatPrice(pkg.price)}
-                    <span className="ml-1 text-sm font-medium text-stone-500">USD</span>
-                  </p>
-                  <Link
-                    href={`/checkout?package=${pkg.id}`}
-                    className="btn-primary mt-3 inline-flex normal-case tracking-normal"
-                  >
-                    Select package
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Pricing — VideoCaddy-style board */}
+      <PricingBoard />
 
       {/* Industries */}
       <section className="border-t border-stone-200 bg-white">

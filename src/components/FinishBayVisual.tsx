@@ -85,7 +85,7 @@ export function HeroQuickActions() {
       ),
     },
     {
-      href: "/checkout",
+      href: "/pricing",
       label: "Packages",
       icon: (
         <path

@@ -9,6 +9,7 @@ const serviceLinks = [
   { href: "/services/testimonial", label: "Testimonial Video" },
   { href: "/services/photo-editing", label: "Photo Editing" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/checkout", label: "Packages & Checkout" },
 ];
 

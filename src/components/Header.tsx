@@ -140,6 +140,7 @@ export function Header() {
 
           {[
             { href: "/portfolio", label: "Portfolio" },
+            { href: "/pricing", label: "Pricing" },
             { href: "/about", label: "About" },
             { href: "/reviews", label: "Reviews" },
             { href: "/contact", label: "Contact" },
@@ -222,10 +223,11 @@ export function Header() {
             <Link href="/services/video-editing">Video Editing</Link>
             <Link href="/services/photo-editing">Photo Editing</Link>
             <Link href="/portfolio">Portfolio</Link>
+            <Link href="/pricing">Pricing</Link>
             <Link href="/about">About</Link>
             <Link href="/reviews">Reviews</Link>
             <Link href="/contact">Contact</Link>
-            <Link href="/checkout">Packages</Link>
+            <Link href="/pricing">Packages</Link>
             <a href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`} className="btn-primary mt-2 text-center normal-case tracking-normal">
               {siteConfig.phone}
             </a>
