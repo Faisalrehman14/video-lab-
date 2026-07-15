@@ -15,12 +15,24 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 };
 
+/**
+ * Senior landing order (conversion psychology):
+ * 1 Who / what  → 2 Trust strip  → 3 Proof  → 4 Price
+ * → 5 How remote works  → 6 Match specialty  → 7 FAQ + brief  → 8 Close
+ */
 const remoteSteps = steps.slice(0, 3);
+
+const trustChips = [
+  "Written USD before Stripe",
+  "Fully remote handoff",
+  "Frame.io / Drive review",
+  "Revision rounds in scope",
+];
 
 export default function HomePage() {
   return (
     <>
-      {/* 1 — Finish Bay hero: brand + headline + one line + CTAs + visual */}
+      {/* 1 — FIRST: Brand + promise + CTA + visual */}
       <section className="hero-stage relative min-h-[100svh] overflow-hidden pt-[68px]">
         <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden />
 
@@ -47,10 +59,6 @@ export default function HomePage() {
                 See rates
               </ButtonLink>
             </div>
-
-            <p className="mt-8 text-xs text-stone-500">
-              {siteConfig.remote.model} · {siteConfig.remote.timezone}
-            </p>
           </div>
 
           <div className="relative z-10 w-full lg:pl-2">
@@ -59,10 +67,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 — Proof stills */}
+      {/* 2 — Trust: remove “scam / agency opacity” fear before deeper pitch */}
+      <section className="border-y border-white/10 bg-[#0a0a0a]">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-5 py-5 md:px-8 md:justify-between">
+          {trustChips.map((t) => (
+            <p
+              key={t}
+              className="text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-400"
+            >
+              <span className="mr-2 text-brand" aria-hidden>
+                ▸
+              </span>
+              {t}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      {/* 3 — Proof: show quality before talking money */}
       <ProofStrip />
 
-      {/* 3 — Remote handoff */}
+      {/* 4 — Price: after trust + proof, answer “kitne ka?” */}
+      <PricingBoard />
+
+      {/* 5 — Process: residual remote-anxiety */}
       <section className="border-t border-stone-200 bg-white">
         <div className="section">
           <div className="mx-auto max-w-2xl text-center">
@@ -93,13 +121,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 — Pricing */}
-      <PricingBoard />
-
-      {/* 5 — 12 specialties */}
+      {/* 6 — Match: “is my job type covered?” */}
       <CategoryShowcase />
 
-      {/* 6 — FAQ + inquiry */}
+      {/* 7 — Convert: objections + brief */}
       <section className="border-t border-stone-200 bg-paper">
         <div className="section grid gap-14 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -144,7 +169,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Close */}
+      {/* 8 — LAST: final nudge */}
       <section className="bg-ink">
         <div className="section flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
           <div className="flex items-start gap-4">
