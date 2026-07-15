@@ -79,7 +79,7 @@ export default function HomePage() {
             <HeroQuickActions />
           </div>
 
-          <div className="relative z-10 h-[360px] sm:h-[400px] lg:h-[480px]">
+          <div className="relative z-10 w-full lg:pl-2">
             <FinishBayVisual />
           </div>
         </div>
@@ -335,7 +335,7 @@ export default function HomePage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="relative min-h-[280px] overflow-hidden ring-1 ring-white/10">
+          <div className="relative overflow-visible">
             <FinishBayVisual />
           </div>
         </div>

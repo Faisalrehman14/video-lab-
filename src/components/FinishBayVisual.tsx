@@ -3,26 +3,40 @@ import { siteConfig } from "@/lib/site";
 import { HeroReel } from "./HeroReel";
 
 /**
- * Main hero media — live finish reel with light stage chrome.
+ * Main hero media — widescreen finish reel framed like a real edit monitor.
  */
 export function FinishBayVisual() {
   return (
-    <div className="relative mx-auto h-full min-h-[300px] w-full max-w-xl lg:max-w-none">
-      {/* Soft orbit accents */}
+    <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
+      {/* Soft stage glow behind the screen */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[118%] w-[118%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[92%] w-[92%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand/20"
+        className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-brand/10 blur-3xl"
         aria-hidden
       />
 
-      <div className="absolute inset-x-[4%] inset-y-[4%] sm:inset-x-[6%] sm:inset-y-[6%]">
-        <HeroReel className="h-full w-full" />
+      {/* Monitor chrome / bezel */}
+      <div className="relative rounded-xl bg-gradient-to-b from-stone-700 via-stone-900 to-black p-[3px] shadow-[0_40px_90px_rgba(0,0,0,0.65)] ring-1 ring-white/10">
+        <div className="rounded-[10px] bg-black p-1.5 sm:p-2">
+          {/* Thin top bar — studio panel feel */}
+          <div className="mb-1.5 flex items-center justify-between px-1 sm:mb-2">
+            <div className="flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              <span className="h-1.5 w-1.5 rounded-full bg-stone-600" />
+              <span className="h-1.5 w-1.5 rounded-full bg-stone-600" />
+            </div>
+            <p className="font-display text-[9px] font-semibold uppercase tracking-[0.24em] text-stone-500">
+              Monitor · 16:9
+            </p>
+          </div>
+
+          <HeroReel className="aspect-video w-full !rounded-md !shadow-none" />
+        </div>
       </div>
 
-      <div className="absolute bottom-[2%] left-[2%] hidden rounded-lg border border-white/10 bg-ink/90 px-3 py-2 shadow-xl backdrop-blur sm:block">
+      {/* Slim stand cue */}
+      <div className="mx-auto mt-3 h-1.5 w-16 rounded-full bg-stone-800" aria-hidden />
+
+      <div className="absolute -bottom-3 left-0 hidden rounded-lg border border-white/10 bg-ink/90 px-3 py-2 shadow-xl backdrop-blur sm:block">
         <p className="text-[9px] font-semibold uppercase tracking-wider text-stone-400">Status</p>
         <p className="font-display text-sm font-bold text-white">
           Reel live <span className="text-brand">●</span>
