@@ -16,6 +16,19 @@ type Props = {
   service: ServiceEntry;
 };
 
+const serviceReels: Record<string, { src: string; label: string; caption: string }> = {
+  "commerce-pathing": {
+    src: "/commerce-pathing-reel.mp4",
+    label: "Marketplace Pathing",
+    caption: "Built for listing compliance",
+  },
+  corporate: {
+    src: "/corporate-reel.mp4",
+    label: "Structured Corporate",
+    caption: "Video finishing services",
+  },
+};
+
 export function ServiceLanding({ service }: Props) {
   const isPhoto = service.contactTopic === "photo";
   const packs = isPhoto ? photoPackages : videoPackages;
@@ -24,6 +37,7 @@ export function ServiceLanding({ service }: Props) {
   const topic = service.contactTopic ?? (isPhoto ? "photo" : "video");
   const contactHref = `/contact?topic=${topic}`;
   const checkoutHref = `/checkout?package=${featuredPack.id}`;
+  const reel = serviceReels[service.slug];
 
   return (
     <div className="pt-[68px] pb-20">
@@ -39,19 +53,9 @@ export function ServiceLanding({ service }: Props) {
         description={service.heroDescription}
         primaryCta={{ href: contactHref, label: "Contact Us" }}
         secondaryCta={{ href: checkoutHref, label: "View Packages" }}
-        reelSrc={
-          service.slug === "commerce-pathing"
-            ? "/commerce-pathing-reel.mp4"
-            : undefined
-        }
-        reelLabel={
-          service.slug === "commerce-pathing" ? "Marketplace Pathing" : undefined
-        }
-        reelCaption={
-          service.slug === "commerce-pathing"
-            ? "Built for listing compliance"
-            : undefined
-        }
+        reelSrc={reel?.src}
+        reelLabel={reel?.label}
+        reelCaption={reel?.caption}
         policyLinks={
           <>
             <Link href="/legal/refund" className="hover:text-brand">
