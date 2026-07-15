@@ -40,18 +40,90 @@ export const serviceTabs = [
 ];
 
 export const categories = [
-  { title: "Corporate Videos", href: "/services/corporate" },
-  { title: "Real Estate Video Tour", href: "/services/video-editing" },
-  { title: "Product Video", href: "/services/video-editing" },
-  { title: "Wedding / Event Video", href: "/portfolio" },
-  { title: "SaaS Demo Video", href: "/services/video-editing" },
-  { title: "Testimonial Video", href: "/services/testimonial" },
-  { title: "Social Shorts / Reels", href: "/services/video-editing" },
-  { title: "YouTube Long-Form", href: "/services/video-editing" },
-  { title: "Photo Catalog Retouch", href: "/services/photo-editing" },
-  { title: "Commerce Pathing", href: "/services/photo-editing" },
-  { title: "Campaign Still Finishing", href: "/services/photo-editing" },
-  { title: "Headshots & Team", href: "/services/photo-editing" },
+  {
+    title: "Corporate Videos",
+    href: "/services/corporate",
+    image:
+      "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=900&q=80",
+    aspect: "tall" as const,
+  },
+  {
+    title: "Campaign Re-Editing",
+    href: "/services/video-editing",
+    image:
+      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80",
+    aspect: "wide" as const,
+  },
+  {
+    title: "Travel & Lifestyle Film",
+    href: "/portfolio",
+    image:
+      "https://images.unsplash.com/photo-1506923821422-49322bed9b4b?auto=format&fit=crop&w=900&q=80",
+    aspect: "mid" as const,
+  },
+  {
+    title: "Product Video",
+    href: "/services/video-editing",
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80",
+    aspect: "mid" as const,
+  },
+  {
+    title: "Interview & Leadership",
+    href: "/services/corporate",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80",
+    aspect: "tall" as const,
+  },
+  {
+    title: "Real Estate Video Tour",
+    href: "/services/video-editing",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
+    aspect: "wide" as const,
+  },
+  {
+    title: "Sales Pitch Video",
+    href: "/services/corporate",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+    aspect: "mid" as const,
+  },
+  {
+    title: "Testimonial Video",
+    href: "/services/testimonial",
+    image:
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80",
+    aspect: "tall" as const,
+  },
+  {
+    title: "Social Shorts / Reels",
+    href: "/services/video-editing",
+    image:
+      "https://images.unsplash.com/photo-1611162616471-46b635cb1dd1?auto=format&fit=crop&w=900&q=80",
+    aspect: "mid" as const,
+  },
+  {
+    title: "YouTube Long-Form",
+    href: "/services/video-editing",
+    image:
+      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80",
+    aspect: "wide" as const,
+  },
+  {
+    title: "Photo Catalog Retouch",
+    href: "/services/photo-editing",
+    image:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80",
+    aspect: "mid" as const,
+  },
+  {
+    title: "Commerce Pathing",
+    href: "/services/photo-editing",
+    image:
+      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80",
+    aspect: "tall" as const,
+  },
 ];
 
 export const steps = [

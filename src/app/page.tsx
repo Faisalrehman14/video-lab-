@@ -10,11 +10,11 @@ import { BrandMark } from "@/components/BrandMark";
 import { CraftDeckGrid } from "@/components/CraftDeckGrid";
 import { StatCut } from "@/components/StatCut";
 import { PricingBoard } from "@/components/PricingBoard";
+import { CategoryShowcase } from "@/components/CategoryShowcase";
 import { siteConfig } from "@/lib/site";
 import { formatPrice, videoPackages } from "@/lib/packages";
 import {
   caseStudies,
-  categories,
   faqs,
   homeStats,
   industries,
@@ -145,43 +145,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="border-t border-stone-200 bg-white">
-        <div className="section">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-                Categories
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold uppercase text-ink md:text-4xl">
-                Popular Work We Support
-              </h2>
-            </div>
-            <ButtonLink href="/services" variant="outlineDark">
-              All Services
-            </ButtonLink>
-          </div>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c, i) => (
-              <Link
-                key={c.title}
-                href={c.href}
-                className="group flex items-center gap-4 border border-stone-200 bg-paper px-5 py-5 transition hover:border-brand hover:bg-white hover:shadow-card"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-ink font-display text-xs font-bold text-white group-hover:bg-brand">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="flex-1">
-                  <span className="block font-display text-base font-bold text-ink group-hover:text-brand">
-                    {c.title}
-                  </span>
-                  <span className="mt-0.5 block text-xs text-stone-500">Read more →</span>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Categories — dark image masonry */}
+      <CategoryShowcase />
 
       {/* Detailed specialties */}
       <section className="border-t border-stone-200 bg-paper">
