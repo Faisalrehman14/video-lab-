@@ -30,10 +30,10 @@ const videoCols = [
   {
     title: "More specialties",
     links: [
-      { href: "/services/interview", label: "Interview & Leadership" },
-      { href: "/services/campaign", label: "Campaign Re-Editing" },
+      { href: "/services/cartoonic", label: "Cartoonic Video" },
+      { href: "/services/animation-2d", label: "2D Animation Editing" },
+      { href: "/services/animation-3d", label: "3D Animation Editing" },
       { href: "/services/travel", label: "Travel & Lifestyle" },
-      { href: "/legal/refund", label: "Refund Policy" },
       { href: "/checkout", label: "Get a Quote" },
     ],
   },
