@@ -12,13 +12,13 @@ export type PricingCategory = {
   influencers: { label: string; detail?: string }[];
 };
 
-/** Hourly starting rates (VideoCaddy-style). Final quote confirmed before Stripe. */
+/** Hourly starting rates — standard finishing-lab range (indicative). */
 export const pricingCategories: PricingCategory[] = [
   {
     id: "video",
     badge: "Video Editing",
     startingLabel: "Basic Pricing (starting)",
-    priceLine: "$22* – $35*",
+    priceLine: "$12* – $15*",
     priceSuffix: "/per hour",
     priceNote: "USD · editor hour · scope locked before payment",
     ctaLabel: "Get Hourly Quote",
@@ -46,7 +46,7 @@ export const pricingCategories: PricingCategory[] = [
     badge: "Photo Editing",
     featured: true,
     startingLabel: "Basic Pricing (starting)",
-    priceLine: "$15* – $25*",
+    priceLine: "$10* – $14*",
     priceSuffix: "/per hour",
     priceNote: "USD · artist hour · batch size confirmed at intake",
     ctaLabel: "Get Hourly Quote",
@@ -71,7 +71,7 @@ export const pricingCategories: PricingCategory[] = [
     id: "audio",
     badge: "Audio Polish",
     startingLabel: "Basic Pricing (starting)",
-    priceLine: "$18*",
+    priceLine: "$10*",
     priceSuffix: "/per hour",
     priceNote: "USD · engineer hour · stems & loudness target at intake",
     ctaLabel: "Get Hourly Quote",
