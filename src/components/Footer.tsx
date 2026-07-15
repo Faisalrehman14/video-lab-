@@ -6,13 +6,18 @@ const serviceLinks = [
   { href: "/services", label: "All Services" },
   { href: "/services/video-editing", label: "Video Editing" },
   { href: "/services/corporate", label: "Corporate Video" },
+  { href: "/services/product", label: "Product Video" },
   { href: "/services/testimonial", label: "Testimonial Video" },
+  { href: "/services/real-estate", label: "Real Estate Tours" },
+  { href: "/services/social-shorts", label: "Social Shorts" },
+  { href: "/services/youtube", label: "YouTube Long-Form" },
+  { href: "/services/photo-catalog", label: "Photo Catalog" },
+  { href: "/services/commerce-pathing", label: "Commerce Pathing" },
   { href: "/services/photo-editing", label: "Photo Editing" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/pricing", label: "Pricing" },
   { href: "/checkout", label: "Packages & Checkout" },
 ];
-
 const companyLinks = [
   { href: "/about", label: "About Us" },
   { href: "/reviews", label: "Client Reviews" },

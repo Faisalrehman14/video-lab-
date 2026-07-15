@@ -13,6 +13,7 @@ const TOPIC_MAP: Record<string, string> = {
   audio: "audio-hourly",
   retainer: "retainer",
   corporate: "corporate",
+  product: "product",
   testimonial: "testimonial",
   custom: "custom",
 };
@@ -24,6 +25,7 @@ const SERVICE_OPTIONS = [
   { value: "video", label: "Video editing — fixed package" },
   { value: "photo", label: "Photo editing — fixed package" },
   { value: "corporate", label: "Corporate video finishing" },
+  { value: "product", label: "Product video finishing" },
   { value: "testimonial", label: "Testimonial editing" },
   { value: "retainer", label: "Studio retainer" },
   { value: "custom", label: "Custom / hybrid scope" },
