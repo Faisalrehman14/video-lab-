@@ -14,6 +14,8 @@ const serviceLinks = [
   { href: "/services/cartoonic", label: "Cartoonic Video" },
   { href: "/services/animation-2d", label: "2D Animation" },
   { href: "/services/animation-3d", label: "3D Animation" },
+  { href: "/services/motion-graphics", label: "Motion Graphics" },
+  { href: "/services/color-grading", label: "Color Grading" },
   { href: "/services/photo-catalog", label: "Photo Catalog" },
   { href: "/services/commerce-pathing", label: "Commerce Pathing" },
   { href: "/services/photo-editing", label: "Photo Editing" },

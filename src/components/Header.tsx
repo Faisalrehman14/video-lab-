@@ -33,8 +33,8 @@ const videoCols = [
       { href: "/services/cartoonic", label: "Cartoonic Video" },
       { href: "/services/animation-2d", label: "2D Animation Editing" },
       { href: "/services/animation-3d", label: "3D Animation Editing" },
-      { href: "/services/travel", label: "Travel & Lifestyle" },
-      { href: "/checkout", label: "Get a Quote" },
+      { href: "/services/motion-graphics", label: "Motion Graphics" },
+      { href: "/services/color-grading", label: "Color Grading" },
     ],
   },
 ];
