@@ -1,26 +1,24 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
+import { proofImages } from "@/lib/images";
 
 const proofs = [
   {
     title: "Campaign film + social suite",
     tag: "DTC apparel",
-    image:
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1200&q=80",
+    image: proofImages.campaign,
     href: "/portfolio",
   },
   {
     title: "220-SKU commerce pathing",
     tag: "Marketplace",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+    image: proofImages.commerce,
     href: "/services/commerce-pathing",
   },
   {
     title: "SaaS demo + vertical cuts",
     tag: "Product marketing",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    image: proofImages.saas,
     href: "/services/saas-demo",
   },
 ];
@@ -48,13 +46,8 @@ export function ProofStrip() {
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {proofs.map((p, i) => (
-            <Link
-              key={p.title}
-              href={p.href}
-              className="group relative block overflow-hidden"
-              style={{ animationDelay: `${i * 80}ms` }}
-            >
+          {proofs.map((p) => (
+            <Link key={p.title} href={p.href} className="group relative block overflow-hidden">
               <div className="relative aspect-[4/5] overflow-hidden bg-stone-900 sm:aspect-[3/4]">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition duration-700 ease-out group-hover:scale-[1.04]"

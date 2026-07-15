@@ -1,3 +1,6 @@
+import { serviceCatalogCategories } from "@/lib/serviceCatalog";
+import { serviceImages } from "@/lib/images";
+
 export const homeStats = [
   { value: "8+", label: "Years of experience" },
   { value: "500+", label: "Satisfied clients" },
@@ -39,7 +42,7 @@ export const serviceTabs = [
   },
 ];
 
-export { serviceCatalogCategories as categories } from "@/lib/serviceCatalog";
+export { serviceCatalogCategories as categories };
 
 export const steps = [
   {
@@ -68,8 +71,7 @@ export const videoSpecialties = [
   {
     title: "Brand & Campaign Film Editing",
     featured: true,
-    image:
-      "linear-gradient(145deg, #2a1010 0%, #111 55%), radial-gradient(circle at 70% 30%, rgba(227,6,19,0.45), transparent 55%)",
+    image: serviceImages.campaign,
     bullets: [
       "Multi-cam sync, selective story pacing, and beat-matched soundtrack cuts for launch films",
       "Secondary color grade with skin-tone protection and brand LUT application",
@@ -81,8 +83,7 @@ export const videoSpecialties = [
   {
     title: "Product Demo & SaaS Video Editing",
     featured: false,
-    image:
-      "linear-gradient(145deg, #1a1a22 0%, #111 55%), radial-gradient(circle at 30% 70%, rgba(227,6,19,0.25), transparent 50%)",
+    image: serviceImages["saas-demo"],
     bullets: [
       "Screen recording cleanup, zoom punch-ins, and UI callout overlays",
       "Voiceover leveling, room-tone reduction, and music bed ducking",
@@ -94,8 +95,7 @@ export const videoSpecialties = [
   {
     title: "Real Estate & Location Walkthrough Editing",
     featured: false,
-    image:
-      "linear-gradient(145deg, #1a1814 0%, #111 55%), radial-gradient(circle at 60% 40%, rgba(255,138,0,0.25), transparent 50%)",
+    image: serviceImages["real-estate"],
     bullets: [
       "Stabilization, horizon correction, and exposure balancing room-to-room",
       "Chaptered tour structure with map/title cards and soft transitions",
@@ -110,8 +110,7 @@ export const photoSpecialties = [
   {
     title: "E-commerce & Marketplace Photo Finishing",
     featured: true,
-    image:
-      "linear-gradient(145deg, #221410 0%, #111 55%), radial-gradient(circle at 40% 30%, rgba(227,6,19,0.3), transparent 50%)",
+    image: serviceImages["commerce-pathing"],
     bullets: [
       "Clipping paths, edge cleanup, and white/transparent background variants",
       "Natural and reflected shadow matching for catalog consistency",
@@ -123,8 +122,7 @@ export const photoSpecialties = [
   {
     title: "Lifestyle & Campaign Still Retouching",
     featured: false,
-    image:
-      "linear-gradient(145deg, #141820 0%, #111 55%), radial-gradient(circle at 70% 60%, rgba(227,6,19,0.2), transparent 50%)",
+    image: serviceImages.travel,
     bullets: [
       "Frequency-separation skin work with texture preservation",
       "Dodge/burn sculpting, fabric cleanup, and prop distraction removal",
@@ -136,8 +134,7 @@ export const photoSpecialties = [
   {
     title: "Headshot & Team Portrait Finishing",
     featured: false,
-    image:
-      "linear-gradient(145deg, #1a1414 0%, #111 55%), radial-gradient(circle at 50% 40%, rgba(255,193,7,0.15), transparent 45%)",
+    image: serviceImages.headshots,
     bullets: [
       "Natural skin retouch, stray hair cleanup, and collar/wardrobe fixes",
       "Background tone matching for multi-person brand directories",
@@ -151,8 +148,7 @@ export const photoSpecialties = [
 export const moreVideoServices = [
   {
     title: "YouTube & Long-Form Narrative Editing",
-    image:
-      "linear-gradient(135deg, #1a1010, #111), radial-gradient(circle at 80% 20%, rgba(227,6,19,0.35), transparent)",
+    image: serviceImages.youtube,
     bullets: [
       "A-roll / B-roll weaving with pattern interrupts for retention",
       "Thumbnail still pulls and chapter markers for SEO structure",
@@ -162,8 +158,7 @@ export const moreVideoServices = [
   },
   {
     title: "Event Highlight & Recap Films",
-    image:
-      "linear-gradient(135deg, #1a1410, #111), radial-gradient(circle at 20% 80%, rgba(255,138,0,0.25), transparent)",
+    image: serviceImages["wedding-event"],
     bullets: [
       "Multi-angle sync and crowd-audio bed balancing",
       "Speaker highlight reels and sponsor bumpers",
@@ -173,8 +168,7 @@ export const moreVideoServices = [
   },
   {
     title: "Color Grading & Finishing Passes",
-    image:
-      "linear-gradient(135deg, #141018, #111), radial-gradient(circle at 50% 50%, rgba(227,6,19,0.25), transparent)",
+    image: serviceImages["color-grading"],
     bullets: [
       "Log-to-Rec.709 or cinematic look development from still refs",
       "Shot matching across cameras and mixed lighting",

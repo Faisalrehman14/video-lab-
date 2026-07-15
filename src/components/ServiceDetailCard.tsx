@@ -15,6 +15,14 @@ export function ServiceDetailCard({
   featured = false,
   href,
 }: Props) {
+  const backgroundImage =
+    image.startsWith("url(") ||
+    image.includes("gradient(") ||
+    image.startsWith("linear") ||
+    image.startsWith("radial")
+      ? image
+      : `url(${image})`;
+
   return (
     <article
       className={`flex h-full flex-col overflow-hidden border ${
@@ -25,7 +33,7 @@ export function ServiceDetailCard({
     >
       <div
         className="aspect-[16/10] w-full bg-cover bg-center"
-        style={{ backgroundImage: image }}
+        style={{ backgroundImage }}
         role="img"
         aria-label={`${title} visual`}
       />
