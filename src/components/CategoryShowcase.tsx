@@ -50,10 +50,10 @@ export function CategoryShowcase() {
                 />
 
                 {/*
-                  Small quarter-circle in the bottom-right corner only.
+                  Corner chip sized so “Read More →” sits fully inside the red arc.
                 */}
                 <div
-                  className="pointer-events-none absolute bottom-0 right-0 z-[1] h-[9.5rem] w-[9.5rem] translate-x-1/2 translate-y-1/2 scale-0 transition duration-500 ease-out group-hover:scale-100 sm:h-40 sm:w-40"
+                  className="pointer-events-none absolute bottom-0 right-0 z-[1] h-[12.5rem] w-[12.5rem] translate-x-1/2 translate-y-1/2 scale-0 transition duration-500 ease-out group-hover:scale-100 sm:h-[13.5rem] sm:w-[13.5rem]"
                   aria-hidden
                 >
                   <div
@@ -65,7 +65,7 @@ export function CategoryShowcase() {
                   />
                 </div>
 
-                <span className="pointer-events-none absolute bottom-3 right-3 z-[2] translate-y-2 text-right font-display text-[10px] font-bold uppercase tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-3.5 sm:right-3.5 sm:text-xs">
+                <span className="pointer-events-none absolute bottom-3.5 right-3.5 z-[2] max-w-[5.5rem] translate-y-2 text-right font-display text-[11px] font-bold uppercase leading-snug tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-4 sm:right-4 sm:max-w-[6.5rem] sm:text-xs">
                   Read More →
                 </span>
               </div>
