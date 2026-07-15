@@ -50,15 +50,14 @@ export function CategoryShowcase() {
                 />
 
                 {/*
-                  Solid round disc (half outside). Parent overflow + rounded-xl
-                  reveals a clean quarter-circle curve on every tile size.
+                  Small quarter-circle in the bottom-right corner only.
                 */}
                 <div
-                  className="pointer-events-none absolute bottom-0 right-0 z-[1] h-[145%] w-[145%] translate-x-[42%] translate-y-[42%] scale-0 transition duration-500 ease-out group-hover:scale-100"
+                  className="pointer-events-none absolute bottom-0 right-0 z-[1] h-[9.5rem] w-[9.5rem] translate-x-1/2 translate-y-1/2 scale-0 transition duration-500 ease-out group-hover:scale-100 sm:h-40 sm:w-40"
                   aria-hidden
                 >
                   <div
-                    className="h-full w-full rounded-full shadow-[inset_8px_8px_24px_rgba(255,255,255,0.12),inset_-10px_-14px_28px_rgba(0,0,0,0.35)]"
+                    className="h-full w-full rounded-full shadow-[inset_6px_6px_16px_rgba(255,255,255,0.14),inset_-8px_-10px_20px_rgba(0,0,0,0.35)]"
                     style={{
                       background:
                         "radial-gradient(circle at 32% 32%, #ff3340 0%, #e30613 42%, #b00510 72%, #8a0410 100%)",
@@ -66,7 +65,7 @@ export function CategoryShowcase() {
                   />
                 </div>
 
-                <span className="pointer-events-none absolute bottom-4 right-4 z-[2] translate-y-2 text-right font-display text-xs font-bold uppercase tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm">
+                <span className="pointer-events-none absolute bottom-3 right-3 z-[2] translate-y-2 text-right font-display text-[10px] font-bold uppercase tracking-wide text-white opacity-0 transition duration-300 delay-75 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-3.5 sm:right-3.5 sm:text-xs">
                   Read More →
                 </span>
               </div>
