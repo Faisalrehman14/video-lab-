@@ -4,11 +4,18 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { FreeTrialForm } from "@/components/FreeTrialForm";
 import { FinishBayVisual } from "@/components/FinishBayVisual";
 import { BrandMark } from "@/components/BrandMark";
+import { StatCut } from "@/components/StatCut";
 import { PricingBoard } from "@/components/PricingBoard";
 import { CategoryShowcase } from "@/components/CategoryShowcase";
 import { ProofStrip } from "@/components/ProofStrip";
+import { CapabilityPillars } from "@/components/CapabilityPillars";
+import { AudienceGrid } from "@/components/AudienceGrid";
+import { EngagementModels } from "@/components/EngagementModels";
+import { CompareTable } from "@/components/CompareTable";
+import { CommitmentBand } from "@/components/CommitmentBand";
 import { siteConfig } from "@/lib/site";
-import { faqs, steps } from "@/lib/content";
+import { homeStats, steps } from "@/lib/content";
+import { companyFaqs } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Professional Video & Photo Editing Services",
@@ -16,9 +23,8 @@ export const metadata: Metadata = {
 };
 
 /**
- * Senior landing order (conversion psychology):
- * 1 Who / what  → 2 Trust strip  → 3 Proof  → 4 Price
- * → 5 How remote works  → 6 Match specialty  → 7 FAQ + brief  → 8 Close
+ * Conversion order (what → who → proof → price → model → process →
+ * differentiation → coverage → commitments → objections → close).
  */
 const remoteSteps = steps.slice(0, 3);
 
@@ -32,7 +38,7 @@ const trustChips = [
 export default function HomePage() {
   return (
     <>
-      {/* 1 — FIRST: Brand + promise + CTA + visual */}
+      {/* 1 — Brand + promise + CTA + visual */}
       <section className="hero-stage relative min-h-[100svh] overflow-hidden pt-[68px]">
         <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden />
 
@@ -49,16 +55,21 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-stone-300">
-              Remote video &amp; photo finishing for campaigns, commerce, and product stories —
-              clear USD scope before Stripe Checkout.
+              A fully remote video &amp; photo finishing lab for campaigns, commerce, and product
+              stories — you brief online, we finish to spec, and the USD scope is locked before
+              Stripe Checkout.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
               <ButtonLink href="/contact">Start a Project</ButtonLink>
-              <ButtonLink href="/pricing" variant="outline">
-                See rates
+              <ButtonLink href="/portfolio" variant="outline">
+                See our work
               </ButtonLink>
             </div>
+
+            <p className="mt-6 text-xs text-stone-500">
+              {siteConfig.remote.coverage} · {siteConfig.remote.timezone}
+            </p>
           </div>
 
           <div className="relative z-10 w-full lg:pl-2">
@@ -67,7 +78,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 — Trust: remove “scam / agency opacity” fear before deeper pitch */}
+      {/* 2 — Trust strip */}
       <section className="border-y border-white/10 bg-[#0a0a0a]">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-5 py-5 md:px-8 md:justify-between">
           {trustChips.map((t) => (
@@ -84,13 +95,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — Proof: show quality before talking money */}
+      {/* 3 — What we offer */}
+      <CapabilityPillars />
+
+      {/* 4 — Who we serve */}
+      <AudienceGrid />
+
+      {/* 5 — Proof */}
       <ProofStrip />
 
-      {/* 4 — Price: after trust + proof, answer “kitne ka?” */}
+      {/* 6 — Stats band */}
+      <section className="bg-ink">
+        <div className="mx-auto max-w-6xl px-5 pb-4 md:px-8">
+          <div className="grid grid-cols-2 gap-6 border-x border-b border-white/10 bg-ink px-4 py-8 md:grid-cols-4 md:px-6 md:py-10">
+            {homeStats.map((s) => (
+              <StatCut key={s.label} value={s.value} label={s.label} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7 — Price */}
       <PricingBoard />
 
-      {/* 5 — Process: residual remote-anxiety */}
+      {/* 8 — Engagement / business model */}
+      <EngagementModels />
+
+      {/* 9 — Remote process */}
       <section className="border-t border-stone-200 bg-white">
         <div className="section">
           <div className="mx-auto max-w-2xl text-center">
@@ -121,18 +152,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 — Match: “is my job type covered?” */}
+      {/* 10 — Differentiation vs alternatives */}
+      <CompareTable />
+
+      {/* 11 — Match specialty */}
       <CategoryShowcase />
 
-      {/* 7 — Convert: objections + brief */}
+      {/* 12 — Commitments */}
+      <CommitmentBand />
+
+      {/* 13 — Objections + brief */}
       <section className="border-t border-stone-200 bg-paper">
         <div className="section grid gap-14 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="font-display text-3xl font-extrabold text-ink md:text-4xl">
               Frequently asked
             </h2>
+            <p className="mt-3 text-sm text-stone-600">
+              The operational and trust questions buyers ask before the first brief.
+            </p>
             <div className="mt-8 space-y-3">
-              {faqs.slice(0, 5).map((f) => (
+              {companyFaqs.map((f) => (
                 <details
                   key={f.q}
                   className="group border border-stone-200 bg-white open:shadow-sm"
@@ -169,7 +209,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8 — LAST: final nudge */}
+      {/* 14 — Close */}
       <section className="bg-ink">
         <div className="section flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
           <div className="flex items-start gap-4">
