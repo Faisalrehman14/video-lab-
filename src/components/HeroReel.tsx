@@ -8,6 +8,7 @@ type Props = {
   compact?: boolean;
   /** Public path to the reel (defaults to site finish reel) */
   src?: string;
+  youtubeId?: string;
   label?: string;
   caption?: string;
 };
@@ -16,6 +17,7 @@ export function HeroReel({
   className = "",
   compact = false,
   src = "/hero-reel.mp4",
+  youtubeId,
   label = "Finish Reel ’26",
   caption = "Campaign · Commerce · Demo cuts",
 }: Props) {
@@ -46,17 +48,28 @@ export function HeroReel({
     <div
       className={`relative overflow-hidden rounded-xl border border-white/15 bg-black shadow-[0_30px_80px_rgba(0,0,0,0.65)] ${className}`}
     >
-      <video
-        ref={ref}
-        className="h-full w-full object-cover"
-        src={src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-label={label}
-      />
+      {youtubeId ? (
+        <iframe
+          className="h-full w-full"
+          src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&modestbranding=1&rel=0&playsinline=1`}
+          title={label}
+          allow="autoplay; encrypted-media; picture-in-picture"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
+      ) : (
+        <video
+          ref={ref}
+          className="h-full w-full object-cover"
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-label={label}
+        />
+      )}
 
       {/* Soft edge vignette */}
       <div
@@ -77,14 +90,16 @@ export function HeroReel({
             <p className="mt-1 text-[11px] text-stone-300">{caption}</p>
           )}
         </div>
-        <button
-          type="button"
-          onClick={toggleMute}
-          className="rounded-full border border-white/20 bg-black/50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-white backdrop-blur transition hover:border-brand hover:bg-brand"
-          aria-label={muted ? "Unmute video" : "Mute video"}
-        >
-          {muted ? "Unmute" : "Mute"}
-        </button>
+        {!youtubeId && (
+          <button
+            type="button"
+            onClick={toggleMute}
+            className="rounded-full border border-white/20 bg-black/50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-white backdrop-blur transition hover:border-brand hover:bg-brand"
+            aria-label={muted ? "Unmute video" : "Mute video"}
+          >
+            {muted ? "Unmute" : "Mute"}
+          </button>
+        )}
       </div>
 
       <div className="absolute left-3 top-3 h-8 w-8 border-l-2 border-t-2 border-brand" aria-hidden />

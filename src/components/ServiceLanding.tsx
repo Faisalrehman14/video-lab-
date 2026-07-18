@@ -16,7 +16,14 @@ type Props = {
   service: ServiceEntry;
 };
 
-const serviceReels: Record<string, { src: string; label: string; caption: string }> = {
+type ServiceReel = {
+  src?: string;
+  youtubeId?: string;
+  label: string;
+  caption: string;
+};
+
+const serviceReels: Record<string, ServiceReel> = {
   "commerce-pathing": {
     src: "/commerce-pathing-reel.mp4",
     label: "Marketplace Pathing",
@@ -26,6 +33,11 @@ const serviceReels: Record<string, { src: string; label: string; caption: string
     src: "/corporate-reel.mp4",
     label: "Structured Corporate",
     caption: "Video finishing services",
+  },
+  campaign: {
+    youtubeId: "b0lFaU1Lfbk",
+    label: "Campaign Adaptations",
+    caption: "Without restarting post",
   },
 };
 
@@ -54,6 +66,7 @@ export function ServiceLanding({ service }: Props) {
         primaryCta={{ href: contactHref, label: "Contact Us" }}
         secondaryCta={{ href: checkoutHref, label: "View Packages" }}
         reelSrc={reel?.src}
+        reelYoutubeId={reel?.youtubeId}
         reelLabel={reel?.label}
         reelCaption={reel?.caption}
         policyLinks={

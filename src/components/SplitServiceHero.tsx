@@ -11,6 +11,7 @@ type Props = {
   secondaryCta?: { href: string; label: string };
   policyLinks?: ReactNode;
   reelSrc?: string;
+  reelYoutubeId?: string;
   reelLabel?: string;
   reelCaption?: string;
 };
@@ -28,6 +29,7 @@ export function SplitServiceHero({
   secondaryCta,
   policyLinks,
   reelSrc,
+  reelYoutubeId,
   reelLabel,
   reelCaption,
 }: Props) {
@@ -35,6 +37,7 @@ export function SplitServiceHero({
     <HeroReel
       className="aspect-video w-full !rounded-none !border-0 !shadow-none"
       src={reelSrc}
+      youtubeId={reelYoutubeId}
       label={reelLabel}
       caption={reelCaption}
     />
@@ -87,6 +90,7 @@ export function SplitServiceHero({
             className="aspect-video w-full !rounded-md"
             compact
             src={reelSrc}
+            youtubeId={reelYoutubeId}
             label={reelLabel}
             caption={reelCaption}
           />
