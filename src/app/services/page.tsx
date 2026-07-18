@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatPrice, photoPackages, videoPackages } from "@/lib/packages";
 import { ButtonLink } from "@/components/ButtonLink";
 import { serviceCatalog } from "@/lib/serviceCatalog";
+import { SpecialtyIndex, type SpecialtyItem } from "@/components/SpecialtyIndex";
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -10,9 +11,58 @@ export const metadata: Metadata = {
     "Professional video and photo finishing specialties — each with a dedicated service page, clear scope, and USD pricing before Stripe Checkout.",
 };
 
+/** Intent groups — how buyers actually shop, not a flat directory. */
+const VIDEO_GROUPS = ["Narrative", "Commerce", "Place & Events", "Format & Craft"] as const;
+
+const VIDEO_GROUP_BY_SLUG: Record<string, (typeof VIDEO_GROUPS)[number]> = {
+  corporate: "Narrative",
+  interview: "Narrative",
+  testimonial: "Narrative",
+  "sales-pitch": "Narrative",
+  product: "Commerce",
+  campaign: "Commerce",
+  "saas-demo": "Commerce",
+  "real-estate": "Place & Events",
+  travel: "Place & Events",
+  "wedding-event": "Place & Events",
+  "social-shorts": "Format & Craft",
+  youtube: "Format & Craft",
+  "motion-graphics": "Format & Craft",
+  "animation-2d": "Format & Craft",
+  "animation-3d": "Format & Craft",
+  cartoonic: "Format & Craft",
+  "color-grading": "Format & Craft",
+};
+
+const PHOTO_GROUP_BY_SLUG: Record<string, string> = {
+  "photo-catalog": "Commerce Stills",
+  "commerce-pathing": "Commerce Stills",
+  headshots: "People",
+};
+
+function toItems(
+  services: typeof serviceCatalog,
+  groupMap: Record<string, string>,
+): SpecialtyItem[] {
+  return services.map((s) => ({
+    slug: s.slug,
+    label: s.label,
+    eyebrow: s.eyebrow,
+    description: s.metaDescription,
+    image: s.image,
+    group: groupMap[s.slug] ?? "Specialty",
+  }));
+}
+
 export default function ServicesPage() {
-  const video = serviceCatalog.filter((s) => s.contactTopic !== "photo");
-  const photo = serviceCatalog.filter((s) => s.contactTopic === "photo");
+  const video = toItems(
+    serviceCatalog.filter((s) => s.contactTopic !== "photo"),
+    VIDEO_GROUP_BY_SLUG,
+  );
+  const photo = toItems(
+    serviceCatalog.filter((s) => s.contactTopic === "photo"),
+    PHOTO_GROUP_BY_SLUG,
+  );
 
   return (
     <div className="pt-[68px]">
@@ -58,26 +108,12 @@ export default function ServicesPage() {
               General video page →
             </Link>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {video.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="group border border-stone-200 bg-paper p-5 transition hover:border-brand hover:shadow-card"
-              >
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand">
-                  {s.eyebrow}
-                </p>
-                <h3 className="mt-2 font-display text-lg font-extrabold text-ink group-hover:text-brand">
-                  {s.label}
-                </h3>
-                <p className="mt-2 line-clamp-2 text-sm text-stone-600">{s.metaDescription}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-brand">
-                  Open profession →
-                </span>
-              </Link>
-            ))}
-          </div>
+
+          <SpecialtyIndex
+            items={video}
+            featuredSlugs={["corporate", "product"]}
+            groups={[...VIDEO_GROUPS]}
+          />
         </div>
       </section>
 
@@ -97,26 +133,8 @@ export default function ServicesPage() {
               General photo page →
             </Link>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {photo.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="group border border-stone-200 bg-white p-5 transition hover:border-brand hover:shadow-card"
-              >
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand">
-                  {s.eyebrow}
-                </p>
-                <h3 className="mt-2 font-display text-lg font-extrabold text-ink group-hover:text-brand">
-                  {s.label}
-                </h3>
-                <p className="mt-2 line-clamp-2 text-sm text-stone-600">{s.metaDescription}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-brand">
-                  Open profession →
-                </span>
-              </Link>
-            ))}
-          </div>
+
+          <SpecialtyIndex items={photo} />
         </div>
       </section>
     </div>
