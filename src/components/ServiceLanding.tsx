@@ -20,7 +20,7 @@ type ServiceReel = {
   src?: string;
   youtubeId?: string;
   label: string;
-  caption: string;
+  caption?: string;
 };
 
 const serviceReels: Record<string, ServiceReel> = {
@@ -37,7 +37,47 @@ const serviceReels: Record<string, ServiceReel> = {
   campaign: {
     youtubeId: "b0lFaU1Lfbk",
     label: "Campaign Adaptations",
-    caption: "Without restarting post",
+    caption: "",
+  },
+  "motion-graphics": {
+    youtubeId: "8rB1Tsd-mSI",
+    label: "Motion Graphics",
+    caption: "",
+  },
+  cartoonic: {
+    youtubeId: "mPo9p3KI_6Q",
+    label: "Cartoonic Finishing",
+    caption: "",
+  },
+  product: {
+    youtubeId: "ImIDlchAD-w",
+    label: "Product Finishing",
+    caption: "",
+  },
+  "real-estate": {
+    youtubeId: "HKj6T3u6YQU",
+    label: "Property Tour Finishing",
+    caption: "",
+  },
+  "saas-demo": {
+    youtubeId: "jWpUR4nTw3s",
+    label: "SaaS Product Demos",
+    caption: "",
+  },
+  "sales-pitch": {
+    youtubeId: "7MFZmMYAAWo",
+    label: "Sales Pitch",
+    caption: "",
+  },
+  travel: {
+    youtubeId: "2ph6THnLvtA",
+    label: "Travel Films",
+    caption: "",
+  },
+  "wedding-event": {
+    youtubeId: "kOYyJsMQKew",
+    label: "Wedding Finishing",
+    caption: "",
   },
 };
 
